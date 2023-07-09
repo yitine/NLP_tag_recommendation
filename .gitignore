@@ -1,0 +1,6 @@
+/notebooks/
+data
+env/
+__pycache__/
+.ipynb_checkpoints/
+nltk_data/
