@@ -15,8 +15,8 @@ for word in ['what', 'how', 'where', 'who', 'which'] :
 
 # feature extraction pas USE
 # use_embed = hub.load("universal-sentence-encoder_4")
-embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
-# embed = hub.load("universal-sentence-encoder_4")
+# embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
+embed = hub.load("universal-sentence-encoder_4")
 
 
 def preprocess(text) :
