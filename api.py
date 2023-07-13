@@ -1,10 +1,11 @@
 from flask import Flask, jsonify
 from joblib import load
 from preprocess import preprocess, clean_output
+import sklearn
 
 app = Flask(__name__)
 
-pipe = load('trained_use_logReg.joblib')
+pipe = load('train_use_logReg.joblib')
 
 
 
@@ -17,7 +18,7 @@ def hello():
 # route api pour requête get
 @app.route("/api/text=<text>")
 def my_api(text) :
-
+	
 	text_clean = preprocess(text)
 	output = pipe.predict([text_clean])
 	output_clean = clean_output(output)
