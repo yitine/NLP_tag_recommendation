@@ -5,7 +5,7 @@ import sklearn
 
 app = Flask(__name__)
 
-pipe = load('train_use_logReg.joblib')
+pipe = load('OneVs_logReg.joblib')
 
 
 

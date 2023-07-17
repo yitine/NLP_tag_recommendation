@@ -17,7 +17,7 @@ for word in ['what', 'how', 'where', 'who', 'which'] :
 
 # feature extraction pas USE
 # use_embed = hub.load("universal-sentence-encoder_4")
-embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
+# embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 # embed = hub.load("universal-sentence-encoder_4")
 
 
@@ -73,8 +73,8 @@ def preprocess(text) :
           
     new_text = ' '.join(new_text)
     
-    #return new_text
-    return tf.reshape(embed([new_text]), [-1]).numpy()
+    return new_text
+    #return tf.reshape(embed([new_text]), [-1]).numpy()
 
 
 # Fonction de création des features
@@ -82,7 +82,7 @@ def feature_USE_fct(sentences, b_size = 20) :
     
     batch_size = b_size
 
-    features = embed(sentences[0:batch_size]).numpy()
+    features = sentences[0:batch_size].numpy()
 
     return features
 
