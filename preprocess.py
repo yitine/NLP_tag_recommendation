@@ -1,11 +1,13 @@
 import numpy as np
 
+
 import nltk
 #nltk.download('stopwords')
 #nltk.download('punkt')
 #nltk.download('averaged_perceptron_tagger')
 #nltk.download('wordnet')
 from string import punctuation
+import tensorflow as tf
 import tensorflow_hub as hub
 
 
@@ -70,12 +72,13 @@ def preprocess(text) :
     new_text =[word for word in new_text if word!='']
           
     new_text = ' '.join(new_text)
-
-    return new_text
+    
+    #return new_text
+    return tf.reshape(embed([new_text]), [-1]).numpy()
 
 
 # Fonction de création des features
-def feature_USE_fct(sentences, b_size = 10) :
+def feature_USE_fct(sentences, b_size = 20) :
     
     batch_size = b_size
 
@@ -83,14 +86,14 @@ def feature_USE_fct(sentences, b_size = 10) :
 
     return features
 
-    #emb = use_embed([r])
-    #review_emb = tf.reshape(emb, [-1]).numpy()
-    #train_feature.append(review_emb)
+    
+    
+   
 
 
 # Fonction de mise en forme du résultat
 def clean_output(result) :
-
+    # top20tags.txt follows the list in mlb.classes_
     file = open("./top20tags.txt", "r")
     top20tags = file.read()
     top20tags = list(top20tags.split('\n')[:-1])
