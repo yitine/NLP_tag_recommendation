@@ -5,6 +5,7 @@ import sklearn
 
 app = Flask(__name__)
 
+# use model version github
 pipe = load('train_use_logReg.joblib')
 
 

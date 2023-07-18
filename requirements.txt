@@ -1,6 +1,7 @@
 pandas
 numpy
 nltk
+scikit-learn
 tensorflow
 tensorflow_hub
 joblib
