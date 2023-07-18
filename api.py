@@ -18,7 +18,6 @@ def hello():
 # route api pour requête get
 @app.route("/api/text=<text>")
 def my_api(text) :
-	
 	text_clean = preprocess(text)
 	features = pipe2.transform([text_clean])
 	output = pipe.predict(features)

@@ -1,18 +1,15 @@
 import numpy as np
 
-
 import nltk
 #nltk.download('stopwords')
 #nltk.download('punkt')
 #nltk.download('averaged_perceptron_tagger')
 #nltk.download('wordnet')
 from string import punctuation
-import tensorflow as tf
+#import tensorflow as tf
 #import tensorflow_hub as hub
 
-#from joblib import load
-#pipe = load('OneVs_logReg.joblib')
-#print(pipe.n_classes_)
+
 
 stop_words = nltk.corpus.stopwords.words("english")
 for word in ['what', 'how', 'where', 'who', 'which'] :
