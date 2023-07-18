@@ -8,8 +8,11 @@ import nltk
 #nltk.download('wordnet')
 from string import punctuation
 import tensorflow as tf
-import tensorflow_hub as hub
+#import tensorflow_hub as hub
 
+#from joblib import load
+#pipe = load('OneVs_logReg.joblib')
+#print(pipe.n_classes_)
 
 stop_words = nltk.corpus.stopwords.words("english")
 for word in ['what', 'how', 'where', 'who', 'which'] :
@@ -70,9 +73,18 @@ def preprocess(text) :
     # remove duplicate words
     new_text=set(new_text)
     new_text =[word for word in new_text if word!='']
-          
+    print(new_text)
     new_text = ' '.join(new_text)
     
+    # top20tags.txt follows the list in mlb.classes_
+    file = open("./top20tags.txt", "r")
+    top20tags = file.read()
+    top20tags = top20tags.split()[:20]
+    file.close()
+    vector=[0 for i in top20tags]
+    for word in new_text:
+        if word in top20tags:
+            vector[top20tags.index(word)]=1
     return new_text
     #return tf.reshape(embed([new_text]), [-1]).numpy()
 

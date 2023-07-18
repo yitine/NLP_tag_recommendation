@@ -6,7 +6,7 @@ import sklearn
 app = Flask(__name__)
 
 pipe = load('OneVs_logReg.joblib')
-
+pipe2 = load('countVectorizer.joblib')
 
 
 # route test hello world
@@ -20,7 +20,8 @@ def hello():
 def my_api(text) :
 	
 	text_clean = preprocess(text)
-	output = pipe.predict([text_clean])
+	features = pipe2.transform([text_clean])
+	output = pipe.predict(features)
 	output_clean = clean_output(output)
 
 	dictionnaire = {
