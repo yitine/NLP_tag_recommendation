@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from joblib import load
 from preprocess import preprocess, clean_output
-import sklearn
+# import sklearn
 
 api = Flask(__name__)
 
